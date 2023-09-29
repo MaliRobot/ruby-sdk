@@ -48,7 +48,12 @@ jobs:
           path: temp/ubuntu-x64
 
       - name: Copy Linux file
-        run: cp temp/ubuntu-x64/libbitwarden.so languages/ruby/libbitwarden.so
+        run: |
+          ls -lah
+          pwd
+          cd temp
+          ls -lah
+          cp temp/ubuntu-x64/libbitwarden.so languages/ruby/libbitwarden.so
         shell: bash
 
       - name: Clean up temporary files
