@@ -53,7 +53,10 @@ jobs:
           pwd
           cd temp
           ls -lah
-          cp temp/ubuntu-x64/libbitwarden.so languages/ruby/libbitwarden.so
+          cd ubuntu-x64
+          ls -lah
+          pwd
+          cp temp/ubuntu-x64/libbitwarden_c.so languages/ruby/libbitwarden_c.so
         shell: bash
 
       - name: Clean up temporary files
