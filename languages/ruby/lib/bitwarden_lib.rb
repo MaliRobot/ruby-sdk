@@ -14,7 +14,7 @@ module BitwardenLib
             File.exist?(local_file) ? local_file : File.expand_path('../../../target/debug/libbitwarden_c.so', __dir__)
           when /mswin|mingw/
             local_file = File.expand_path('libbitwarden_c.dll', __dir__)
-            File.exist?(local_file) ? local_file : File.expand_path('../../../target/debug/libbitwarden_c.dll', __dir__)
+            File.exist?(local_file) ? local_file : File.expand_path('../../../target/debug/bitwarden_c.dll', __dir__)
           else
             raise "Unsupported platform: #{RUBY_PLATFORM}"
           end

@@ -66,7 +66,7 @@ jobs:
           path: temp/windows-x64
 
       - name: Copy Windows lib file
-        run: cp temp/windows-x64/libbitwarden_c.dll languages/ruby/libbitwarden_c.dll
+        run: cp temp/windows-x64/bitwarden_c.dll languages/ruby/bitwarden_c.dll
         shell: bash
 
       - name: Set up Ruby
