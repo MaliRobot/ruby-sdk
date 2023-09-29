@@ -38,6 +38,7 @@ jobs:
           ruby-version: '3.2'
 
       - name: Setup gem and release it
+        working_directory: library/ruby
         run: |
           gem install bundler
           gem build *.gemspec
