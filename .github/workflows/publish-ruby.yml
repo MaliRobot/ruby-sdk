@@ -84,11 +84,15 @@ jobs:
         run: |
           echo $HOME
           pwd
-          cd languages/ruby
+          cd languages
+          ls -lah
+          cd ruby
+          ls -lah
+          cd languages
+          ls -lah
+          cd ruby
           ls -lah
           pwd
-          cd languages/ruby
-          ls -lah
           gem install bundler
           gem build *.gemspec
           gem install *.gem
