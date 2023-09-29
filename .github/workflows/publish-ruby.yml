@@ -24,15 +24,9 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: Set up Ruby
-        uses: actions/checkout@v4
+        uses: ruby/setup-ruby@v1
         with:
-          ref: master
-          path: languages/ruby
-
-      - name: Install Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-        with:
-          ruby-version: '3.2'
+          ruby-version: 3.2
 
       - name: Download Ruby schemas artifact
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
@@ -82,17 +76,7 @@ jobs:
 
       - name: Setup gem and release it
         run: |
-          echo $HOME
-          pwd
-          cd languages
-          ls -lah
-          cd ruby
-          ls -lah
-          cd languages
-          ls -lah
-          cd ruby
-          ls -lah
-          pwd
+          cd languages/ruby
           gem install bundler
           gem build *.gemspec
           gem install *.gem
