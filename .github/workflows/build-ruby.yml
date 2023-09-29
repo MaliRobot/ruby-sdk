@@ -48,15 +48,7 @@ jobs:
           path: temp/ubuntu-x64
 
       - name: Copy Linux file
-        run: |
-          ls -lah
-          pwd
-          cd temp
-          ls -lah
-          cd ubuntu-x64
-          ls -lah
-          pwd
-          cp temp/ubuntu-x64/libbitwarden_c.so languages/ruby/libbitwarden_c.so
+        run: cp temp/ubuntu-x64/libbitwarden_c.so languages/ruby/libbitwarden_c.so
         shell: bash
 
       - name: Clean up temporary files
@@ -81,9 +73,7 @@ jobs:
 
       - name: Setup gem and release it
         run: |
-          ls -la
-          cd languages/ruby/languages/ruby
-          ls -la
+          cd languages/ruby
           gem install bundler
           gem build *.gemspec
           gem install *.gem
