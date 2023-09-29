@@ -1,4 +1,4 @@
-name: Build Ruby SDK
+name: Publish Ruby SDK
 
 on:
   pull_request:
@@ -82,8 +82,11 @@ jobs:
 
       - name: Setup gem and release it
         run: |
+          echo $HOME
+          pwd
           cd languages/ruby
           ls -lah
+          pwd
           cd languages/ruby
           ls -lah
           gem install bundler
