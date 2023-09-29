@@ -39,11 +39,6 @@ jobs:
 
       - name: Setup gem and release it
         run: |
-          ls -la
-          cd languages/ruby
-          ls -la
-          cd languages/ruby
-          ls -la
           gem install bundler
           gem build *.gemspec
           gem install *.gem
