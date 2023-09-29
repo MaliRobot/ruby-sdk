@@ -29,17 +29,29 @@ jobs:
           name: schemas.rb
           path: languages/ruby/schemas.rb
 
-      - name: Download Linux Bitwarden library
+      - name: Download x86_64-apple-darwin files
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
-          name: libbitwarden_c.so
-          path: languages/ruby/libbitwarden_c.so
+          name: libbitwarden_c_files-x86_64-apple-darwin
+          path: languages/ruby/macos-x64
 
-      - name: Download Windows Bitwarden library
+      - name: Download aarch64-apple-darwin files
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
-          name: bitwarden_c.dll
-          path: languages/ruby/bitwarden_c.dll
+          name: libbitwarden_c_files-aarch64-apple-darwin
+          path: languages/ruby/macos-arm64
+
+      - name: Download x86_64-unknown-linux-gnu files
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: libbitwarden_c_files-x86_64-unknown-linux-gnu
+          path: languages/ruby/ubuntu-x64
+
+      - name: Download x86_64-pc-windows-msvc files
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: libbitwarden_c_files-x86_64-pc-windows-msvc
+          path: languages/ruby/windows-x64
 
       - name: Set up Ruby
         uses: actions/checkout@v4
