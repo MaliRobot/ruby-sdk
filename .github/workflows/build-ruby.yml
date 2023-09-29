@@ -9,12 +9,15 @@ jobs:
   generate_schemas:
     uses: ./.github/workflows/generate_schemas.yml
 
+  build_rust:
+    uses: ./.github/workflows/build-rust-cross-platform.yml
 
   build_ruby:
     name: Build Ruby
     runs-on: ubuntu-22.04
     needs:
       - generate_schemas
+      - build_rust
 
     steps:
       - name: Checkout Repository
@@ -24,7 +27,19 @@ jobs:
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: schemas.rb
-          path: languages/ruby/lib/schemas.rb
+          path: languages/ruby/schemas.rb
+
+      - name: Download Linux Bitwarden library
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: libbitwarden_c.so
+          path: languages/ruby/libbitwarden_c.so
+
+      - name: Download Windows Bitwarden library
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: bitwarden_c.dll
+          path: languages/ruby/bitwarden_c.dll
 
       - name: Set up Ruby
         uses: actions/checkout@v4
@@ -39,7 +54,7 @@ jobs:
 
       - name: Setup gem and release it
         run: |
-          cd library/ruby
+          cd languages/ruby
           gem install bundler
           gem build *.gemspec
           gem install *.gem
