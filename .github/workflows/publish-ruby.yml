@@ -84,7 +84,7 @@ jobs:
 
       - name: Setup gem and release it
         run: |
-          cd languages/ruby/lib
+          cd languages/ruby
           gem install bundler
           gem build *.gemspec
           gem install *.gem
