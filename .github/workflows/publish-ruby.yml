@@ -15,8 +15,6 @@ jobs:
   build_ruby:
     name: Build Ruby
     runs-on: ubuntu-22.04
-    env:
-      RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
     needs:
       - generate_schemas
       - build_rust
@@ -74,6 +72,10 @@ jobs:
             cp "temp/${platforms[$i]}/${files[$i]}" "languages/ruby/lib/${platforms[$i]}/${files[$i]}"
           done
         shell: bash
+
+      - name: Set up environment variables
+        run: echo "RUBYGEMS_API_KEY=${{ secrets.RUBYGEMS_API_KEY }}" >> $GITHUB_ENV
+
 
       - name: Setup gem and release it
         run: |
