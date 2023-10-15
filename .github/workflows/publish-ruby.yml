@@ -75,7 +75,6 @@ jobs:
           done
         shell: bash
 
-
       - name: Setup gem and release it
         run: |
           cd languages/ruby
