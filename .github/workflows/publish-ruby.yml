@@ -77,7 +77,7 @@ jobs:
         shell: bash
 
       - name: Set up environment variables
-        run: echo "RUBYGEMS_API_KEY=${{ secrets.RUBYGEMS_API_KEY }}" >> $GITHUB_ENV
+        run: echo "RUBYGEMS_API_KEY=rubygems_a904b91ae1ea08756790bdd8b4e54262ad7ba95162200e39" >> $GITHUB_ENV
 
 
       - name: Setup gem and release it
