@@ -79,15 +79,11 @@ jobs:
       - name: Setup gem and release it
         run: |
           pwd
-          echo "RUBYGEMS_API_KEY=${{ secrets.RUBYGEMS_API_KEY }}" >> $GITHUB_ENV
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
-          pwd
           cd languages/ruby
           gem install bundler
           echo "RubyGems API Key: $RUBYGEMS_API_KEY"
           gem build *.gemspec
           gem push *.gem
+        env:
+          RUBYGEMS_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
 
