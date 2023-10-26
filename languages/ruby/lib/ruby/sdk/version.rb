@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-module Ruby
-  module Bitwarden
-    module Sdk
-      VERSION = '0.1.9'
-    end
+module Bitwarden
+  module SDK
+    VERSION = '0.1.10'
   end
 end
+

@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-class CommandRunner
-  def initialize(bitwarden_sdk, handle)
-    @bitwarden_sdk = bitwarden_sdk
-    @handle = handle
-  end
+module Bitwarden
+  module SDK
+    class CommandRunner
+      def initialize(bitwarden_sdk, handle)
+        @bitwarden_sdk = bitwarden_sdk
+        @handle = handle
+      end
 
-  # @param [Dry-Struct] cmd
-  def run(cmd)
-    @bitwarden_sdk.run_command(cmd.to_json, @handle)
+      # @param [Dry-Struct] cmd
+      def run(cmd)
+        @bitwarden_sdk.run_command(cmd.to_json, @handle)
+      end
+    end
   end
 end
