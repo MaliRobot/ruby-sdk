@@ -79,7 +79,7 @@ jobs:
       - name: Build gem
         run: |
           cd languages/ruby
-          gem build languages/ruby*.gemspec
+          gem build ruby-sdk.gemspec
 
       - name: Push gem to Rubygems
         run: |
