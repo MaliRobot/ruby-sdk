@@ -11,6 +11,7 @@ require_relative 'bitwarden_error'
 require_relative 'projects'
 require_relative 'secrets'
 
+
 class BitwardenClient
   attr_reader :bitwarden, :project_client, :secrets_client
 
