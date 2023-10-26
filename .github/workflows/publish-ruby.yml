@@ -82,7 +82,7 @@ jobs:
           gem build *.gemspec
 
       - name: Push gem to Rubygems
-        run:
+        run: |
           cd languages/ruby
           gem push *.gem
         env:
