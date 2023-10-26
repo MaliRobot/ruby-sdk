@@ -23,7 +23,7 @@ via env variables.
 
 Authorization can be performed using access token like so:
 ```ruby
-client = BitwardenClient.new
+client = Bitwarden::SDK::BitwardenClient.new
 client.authorize("<<YOUR ACCESS TOKEN HERE>>")
 ```
 

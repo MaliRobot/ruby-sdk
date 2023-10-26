@@ -3,7 +3,7 @@ require_relative '../ruby-bitwarden-sdk'
 
 token = ""
 
-bw_client = BitwardenClient.new
+bw_client = Bitwarden::SDK::BitwardenClient.new
 response = bw_client.authorize(token)
 puts response
 
