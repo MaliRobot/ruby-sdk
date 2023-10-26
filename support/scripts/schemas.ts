@@ -56,7 +56,7 @@ async function main() {
     inputData,
     lang: "ruby",
     rendererOptions: {
-      "ruby-version": "3.2",
+      "ruby-version": "3.0",
     },
   });
 
