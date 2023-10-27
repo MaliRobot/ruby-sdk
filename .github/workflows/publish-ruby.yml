@@ -78,7 +78,7 @@ jobs:
 
       - name: Build gem
         run: |
-          cd languages/ruby/bitwarden_sdk/lib
+          cd languages/ruby/bitwarden_sdk
           gem build bitwarden-sdk.gemspec
 
       - name: Push gem to Rubygems
