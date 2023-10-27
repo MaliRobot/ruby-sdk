@@ -35,7 +35,7 @@ jobs:
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: schemas.rb
-          path: languages/ruby/lib
+          path: languages/ruby/bitwarden_sdk/lib
 
       - name: Download x86_64-apple-darwin files
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
@@ -63,27 +63,27 @@ jobs:
 
       - name: Copy lib files
         run: |
-          mkdir -p languages/ruby/lib/macos-arm64
-          mkdir -p languages/ruby/lib/ubuntu-x64
-          mkdir -p languages/ruby/lib/macos-x64
-          mkdir -p languages/ruby/lib/windows-x64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/macos-arm64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/ubuntu-x64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/macos-x64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/windows-x64
 
           platforms=("macos-arm64" "ubuntu-x64" "macos-x64" "windows-x64")
           files=("libbitwarden_c.dylib" "libbitwarden_c.so" "libbitwarden_c.dylib" "bitwarden_c.dll")
 
           for ((i=0; i<${#platforms[@]}; i++)); do
-            cp "temp/${platforms[$i]}/${files[$i]}" "languages/ruby/lib/${platforms[$i]}/${files[$i]}"
+            cp "temp/${platforms[$i]}/${files[$i]}" "languages/ruby/bitwarden_sdk/lib/${platforms[$i]}/${files[$i]}"
           done
         shell: bash
 
       - name: Build gem
         run: |
-          cd languages/ruby
+          cd languages/ruby/bitwarden_sdk
           gem build ruby-sdk.gemspec
 
       - name: Push gem to Rubygems
         run: |
-          cd languages/ruby
+          cd languages/ruby/bitwarden_sdk
           gem push *.gem
         env:
           GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
