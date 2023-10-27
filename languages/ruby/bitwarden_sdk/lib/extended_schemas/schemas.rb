@@ -1,6 +1,5 @@
 
-module Bitwarden
-  module SDK
+module BitwardenSDK
     class SelectiveCommand < Command
       attribute :password_login,     PasswordLoginRequest.optional.default(nil)
       attribute :api_key_login,      APIKeyLoginRequest.optional.default(nil)
@@ -62,5 +61,4 @@ module Bitwarden
         }.compact
       end
     end
-  end
 end
