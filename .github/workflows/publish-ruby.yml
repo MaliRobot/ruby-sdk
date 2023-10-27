@@ -83,7 +83,7 @@ jobs:
 
       - name: Push gem to Rubygems
         run: |
-          cd languages/ruby/bitwarden_sdk/lib
+          cd languages/ruby/bitwarden_sdk
           gem push *.gem
         env:
           GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
