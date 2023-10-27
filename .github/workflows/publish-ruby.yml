@@ -78,12 +78,12 @@ jobs:
 
       - name: Build gem
         run: |
-          cd languages/ruby/bitwarden_sdk
+          cd languages/ruby/bitwarden_sdk/lib
           gem build ruby-sdk.gemspec
 
       - name: Push gem to Rubygems
         run: |
-          cd languages/ruby/bitwarden_sdk
+          cd languages/ruby/bitwarden_sdk/lib
           gem push *.gem
         env:
           GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
