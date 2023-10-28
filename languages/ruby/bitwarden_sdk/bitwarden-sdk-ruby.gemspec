@@ -3,7 +3,7 @@
 require_relative 'lib/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'bitwarden-sdk'
+  spec.name = 'bitwarden-sdk-ruby'
   spec.version = BitwardenSDK::VERSION
   spec.authors = ['Bitwarden Inc.']
   spec.email = ['hello@bitwarden_sdk.com']
