@@ -88,4 +88,5 @@ jobs:
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}\n" > $HOME/.gem/credentials
+          cd languages/ruby/bitwarden_sdk
           gem push *.gem
