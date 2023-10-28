@@ -15,8 +15,6 @@ jobs:
   build_ruby:
     name: Build Ruby
     runs-on: ubuntu-22.04
-    env:
-      GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
     needs:
       - generate_schemas
       - build_rust
@@ -86,3 +84,5 @@ jobs:
         run: |
           cd languages/ruby/bitwarden_sdk
           gem push *.gem
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
