@@ -90,5 +90,5 @@ jobs:
           printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
           gem push *.gem
         env:
-          GEM_HOST_API_KEY: "${{secrets.GEM_HOST_API_KEY}}"
+          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 
