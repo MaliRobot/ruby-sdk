@@ -89,5 +89,5 @@ jobs:
           cd languages/ruby/bitwarden_sdk
           gem push *.gem
         env:
-          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+          RUBYGEMS_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
 
