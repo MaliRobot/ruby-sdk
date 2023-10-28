@@ -90,6 +90,7 @@ jobs:
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
           cd languages/ruby/bitwarden_sdk
+          gem env
           gem push *.gem
         env:
           RUBYGEMS_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
