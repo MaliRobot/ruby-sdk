@@ -60,8 +60,17 @@ jobs:
 
       - name: Copy lib files
         run: |
-          mkdir -p languages/ruby/bitwarden_sdk/lib/{macos-arm64,ubuntu-x64,macos-x64,windows-x64}
-          cp temp/{macos-arm64,ubuntu-x64,macos-x64,windows-x64}/{libbitwarden_c.dylib,libbitwarden_c.so,libbitwarden_c.dylib,bitwarden_c.dll} languages/ruby/bitwarden_sdk/lib/{macos-arm64,ubuntu-x64,macos-x64,windows-x64}/
+          mkdir -p languages/ruby/bitwarden_sdk/lib/macos-arm64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/ubuntu-x64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/macos-x64
+          mkdir -p languages/ruby/bitwarden_sdk/lib/windows-x64
+
+          platforms=("macos-arm64" "ubuntu-x64" "macos-x64" "windows-x64")
+          files=("libbitwarden_c.dylib" "libbitwarden_c.so" "libbitwarden_c.dylib" "bitwarden_c.dll")
+
+          for ((i=0; i<${#platforms[@]}; i++)); do
+            cp "temp/${platforms[$i]}/${files[$i]}" "languages/ruby/bitwarden_sdk/lib/${platforms[$i]}/${files[$i]}"
+          done
         shell: bash
 
       - name: Build gem
