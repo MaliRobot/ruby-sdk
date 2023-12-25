@@ -3,7 +3,7 @@ name: Delete old packages
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 29 2 1" # temporary
   workflow_dispatch:
 
 defaults:
